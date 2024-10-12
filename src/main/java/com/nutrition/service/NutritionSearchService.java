@@ -47,8 +47,8 @@ public final class NutritionSearchService {
     public List<Food> searchNutrition(NutritionSearchRequest request) {
         return loadFromCsvFile(csvFile).stream()
             .filter(item -> { return filterItem(item, request);})
-            .limit(request.limit())
             .sorted(buildComparator(request))
+            .limit(request.limit())
             .toList();
     }
 
